@@ -1,0 +1,14 @@
+.card{
+    display: flex;
+    background-color: rgb(231,240,254);
+    border-radius: 12px;
+}
+
+.message .author{
+    margin: 0px;
+    font-weight: 900;
+}
+
+.profile_image{
+    margin: 0 0.4rem;
+}
