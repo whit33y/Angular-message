@@ -1,0 +1,29 @@
+.input_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_container input {
+  border: 2px solid rgb(231, 240, 254);
+  border-radius: 12px;
+  padding: 0.3rem 0.4rem;
+  width: 86%;
+}
+
+.input_container button {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid gainsboro;
+  padding: 0.4rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 200ms;
+}
+
+button:hover {
+  background-color: gainsboro;
+  opacity: 0.7;
+  color: blue;
+}
