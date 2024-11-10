@@ -14,4 +14,17 @@ export class ChatService {
       environment.supabaseKey
     );
   }
+
+  async chatMessage(text: string) {
+    try {
+      const { data, error } = await this.supabase
+        .from('chats')
+        .insert({ text });
+      if (error) {
+        alert(error.message);
+      }
+    } catch (err) {
+      alert(err);
+    }
+  }
 }
