@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from '../../../environment';
 import { Router } from '@angular/router';
@@ -8,20 +8,22 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private supabase!: SupabaseClient;
-  constructor(private router: Router) {
+  constructor(private router: Router, private _ngZone: NgZone) {
     this.supabase = createClient(
       environment.supabaseUrl,
       environment.supabaseKey
     );
     this.supabase.auth.onAuthStateChange((event, session) => {
-      // console.log('event', event);
-      // console.log('session', session);
+      console.log('event', event);
+      console.log('session', session);
       if (session) {
         localStorage.setItem('session', JSON.stringify(session?.user));
       }
 
       if (session?.user) {
-        this.router.navigate(['/chat']);
+        this._ngZone.run(() => {
+          this.router.navigate(['/chat']);
+        });
       }
     });
   }
