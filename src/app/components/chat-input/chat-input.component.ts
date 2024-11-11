@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ChatService } from '../../supabase/chat.service';
 import { CommonModule } from '@angular/common';
+import { ChatComponent } from '../../pages/chat/chat.component';
 
 @Component({
   selector: 'app-chat-input',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ChatInputComponent {
   private chat_service = inject(ChatService);
-
+  private listChat = inject(ChatComponent);
   private fb = inject(FormBuilder);
   chatForm!: FormGroup;
 
@@ -35,6 +36,7 @@ export class ChatInputComponent {
       .then((res) => {
         console.log(res);
         this.chatForm.reset();
+        this.listChat.onListChat();
       })
       .catch((err) => {
         alert(err.message);
