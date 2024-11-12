@@ -1,9 +1,17 @@
+.chat-card {
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgb(231, 240, 254);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card {
   display: flex;
   border-radius: 12px;
   margin-bottom: 0.5rem;
   color: black;
-  border: 1px solid rgb(231, 240, 254);
 }
 
 .message .name {
@@ -31,4 +39,19 @@
 
 .guest {
   border: 1px solid rgb(231, 240, 254);
+}
+
+svg {
+  color: white;
+  width: 23px;
+  height: 23px;
+  margin-right: 10px;
+  background-color: red;
+  padding: 0.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+svg:hover {
+  opacity: 0.8;
 }
