@@ -1,4 +1,4 @@
-<div class='chat-card' [ngClass]="author">
+<div class='chat-card' [ngClass]="{'author': author_id === loggedUserId.id}">
     <div class="card">
         <div class="profile_image">
             <img src="{{avatar_url}}" alt="Profile image">

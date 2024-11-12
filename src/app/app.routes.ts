@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
+        canActivate: [authGuard],
         path: 'chat',
-        loadComponent: () => import('./pages/chat/chat.component').then((com)=> com.ChatComponent)
+        loadComponent: () => import('./pages/chat/chat.component').then((com)=> com.ChatComponent),
     },
     {
         path: 'login',

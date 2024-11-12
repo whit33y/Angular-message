@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { ChatService } from '../../supabase/chat.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-chat-card',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ChatCardComponent {
   @Input() author: string = '';
+  @Input() author_id: string = '';
   @Input() avatar_url: string = '';
   @Input() message: string = '';
   @Input() created_at: string = '';
@@ -19,8 +21,17 @@ export class ChatCardComponent {
 
   private chat_service = inject(ChatService);
   private router = inject(Router);
-
+  private auth = inject(AuthService);
+  
+  loggedUser:any;
+  loggedUserId:any;
   constructor() {}
+
+  ngOnInit(){
+    this.loggedUser = this.auth.loggedUserId;
+    this.loggedUserId = JSON.parse(this.loggedUser);
+    console.log(this.loggedUserId.id)
+  }
 
   deleteChat(id: string) {
     this.chat_service
