@@ -41,17 +41,32 @@
   border: 1px solid rgb(231, 240, 254);
 }
 
+.chat-management {
+  display: flex;
+}
+
+.delete svg {
+  background-color: rgb(255, 0, 0, 0.7);
+}
+
+.edit svg {
+  background-color: rgb(76, 76, 255, 0.7);
+}
+
+.delete svg:hover {
+  background-color: red;
+}
+
+.edit svg:hover {
+  background-color: rgb(76, 76, 255);
+}
+
 svg {
   color: white;
   width: 23px;
   height: 23px;
   margin-right: 10px;
-  background-color: red;
   padding: 0.3rem;
   border-radius: 10px;
   cursor: pointer;
-}
-
-svg:hover {
-  opacity: 0.8;
 }
