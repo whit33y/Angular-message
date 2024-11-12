@@ -49,16 +49,8 @@
   background-color: rgb(255, 0, 0, 0.7);
 }
 
-.edit svg {
-  background-color: rgb(76, 76, 255, 0.7);
-}
-
 .delete svg:hover {
   background-color: red;
-}
-
-.edit svg:hover {
-  background-color: rgb(76, 76, 255);
 }
 
 svg {
