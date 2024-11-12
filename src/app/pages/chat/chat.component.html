@@ -1,7 +1,7 @@
 <div class="chat">
     @for(chat of this.chats(); track $index){
     <app-chat-card [author]="chat.users.full_name" [avatar_url]="chat.users.avatar_url" [message]="chat.text"
-        [created_at]="chat.created_at"></app-chat-card>
+        [created_at]="chat.created_at" [id]="chat.id"></app-chat-card>
     }@empty {
     <div>No messages available!</div>
     }
