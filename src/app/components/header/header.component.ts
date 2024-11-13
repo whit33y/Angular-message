@@ -1,6 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +12,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   private auth = inject(AuthService);
+  private routeSubscription: Subscription | any;
 
   constructor(private router: Router) {}
 
   isUserLoggedIn = false;
   ngOnInit() {
-    this.isUserLoggedIn = this.auth.isLoggedIn;
+    this.routeSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.isUserLoggedIn = this.auth.isUser();
+    });
   }
 
   async logout() {
@@ -30,5 +36,11 @@ export class HeaderComponent {
       .catch((err) => {
         alert(err.message);
       });
+  }
+
+  ngOnDestroy() {
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
   }
 }

@@ -31,6 +31,10 @@ export class AuthService {
     return user === 'undefined' ? false : true;
   }
 
+  isUser(): boolean{
+    return !!localStorage.getItem('session');
+  }
+
   get loggedUserId(): string{
     const user = localStorage.getItem('session') as string;
     return user;

@@ -3,8 +3,8 @@ import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
-        canActivate: [authGuard],
         path: 'chat',
+        canActivate: [authGuard],
         loadComponent: () => import('./pages/chat/chat.component').then((com)=> com.ChatComponent),
     },
     {
