@@ -3,6 +3,7 @@ import { ChatCardComponent } from '../../components/chat-card/chat-card.componen
 import { ChatInputComponent } from '../../components/chat-input/chat-input.component';
 import { ChatService } from '../../supabase/chat.service';
 import { Chat } from '../../interface/chat.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -12,10 +13,23 @@ import { Chat } from '../../interface/chat.interface';
   styleUrl: './chat.component.css',
 })
 export class ChatComponent {
+
+  messages: any[] = [];
+  private newMessagesSubscription: Subscription | any;
+
+  
   constructor() {
     effect(() => {
       this.onListChat();
     });
+  }
+
+  ngOnInit() {
+    this.newMessagesSubscription = this.chat_service.newMessages.subscribe(
+      (newMessages) => {
+        this.messages = newMessages;
+      }
+    );
   }
 
   chats = signal<Chat[]>([]);
@@ -36,4 +50,12 @@ export class ChatComponent {
         alert(err.message);
       });
   }
+
+  ngOnDestroy() {
+
+    if (this.newMessagesSubscription) {
+      this.newMessagesSubscription.unsubscribe();
+    }
+  }
+
 }

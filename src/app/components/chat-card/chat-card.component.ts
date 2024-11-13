@@ -30,7 +30,6 @@ export class ChatCardComponent {
   ngOnInit(){
     this.loggedUser = this.auth.loggedUserId;
     this.loggedUserId = JSON.parse(this.loggedUser);
-    console.log(this.loggedUserId.id)
   }
 
   deleteChat(id: string) {

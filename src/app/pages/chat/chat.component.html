@@ -1,5 +1,5 @@
 <div class="chat">
-    @for(chat of this.chats(); track $index){
+    @for(chat of chats(); track $index){
     <app-chat-card [author]="chat.users.full_name" [avatar_url]="chat.users.avatar_url" [message]="chat.text"
         [created_at]="chat.created_at" [id]="chat.id" [author_id]="chat.sender"></app-chat-card>
     }@empty {

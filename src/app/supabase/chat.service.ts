@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from '../../../environment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,29 @@ export class ChatService {
       environment.supabaseUrl,
       environment.supabaseKey
     );
+    this.subscribeToNewMessages();
+  }
+
+  private newMessages$ = new BehaviorSubject<any[]>([])
+
+ get newMessages() {
+    return this.newMessages$.asObservable();
+  }
+
+  private async subscribeToNewMessages() {
+
+
+    this.supabase
+      .channel('public:chats')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'chats' },
+        (payload) => {
+          console.log('New message:', payload);
+          this.newMessages$.next([...this.newMessages$.value, payload.new]);
+        }
+      )
+      .subscribe();
   }
 
   async chatMessage(text: string) {
