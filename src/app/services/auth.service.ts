@@ -31,7 +31,7 @@ export class AuthService {
     return user === 'undefined' ? false : true;
   }
 
-  isUser(): boolean{
+  isUserLogged(): boolean{
     return !!localStorage.getItem('session');
   }
 

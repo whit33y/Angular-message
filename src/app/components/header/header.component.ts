@@ -21,7 +21,7 @@ export class HeaderComponent {
     this.routeSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
-      this.isUserLoggedIn = this.auth.isUser();
+      this.isUserLoggedIn = this.auth.isUserLogged();
     });
   }
 
