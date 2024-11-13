@@ -1,7 +1,11 @@
 <div class='chat-card' [ngClass]="{'author': author_id === loggedUserId.id}">
     <div class="card">
         <div class="profile_image">
+            @if(avatar_url){
             <img src="{{avatar_url}}" alt="Profile image">
+            }@else {
+            <img src="../../../assets/package-lock.png" alt="Profile image">
+            }
             <p>
                 {{created_at | date: 'M/d/yy'}}
             </p>
