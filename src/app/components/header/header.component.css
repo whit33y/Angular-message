@@ -1,40 +1,45 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.2rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
 }
 
-.left{
-    display: flex;
-    justify-content: center;
-    width: 50%;
+.left {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
-.right{
-    display: flex;
-    justify-content: center;
-    width: 50%;
+.right {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
-span{
-    color: rgb(76,76,255);
+span {
+  color: rgb(76, 76, 255);
 }
 
-button{
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid gainsboro;
-    padding: 0.4rem 2rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 200ms;
+button {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid gainsboro;
+  padding: 0.4rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 200ms;
 }
 
-button:hover{
-    background-color: gainsboro;
-    opacity: 0.7;
-    color: blue;
+button:hover {
+  background-color: gainsboro;
+  opacity: 0.7;
+  color: blue;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
 }

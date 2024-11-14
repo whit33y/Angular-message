@@ -29,12 +29,10 @@ export class ChatInputComponent {
   }
 
   onSubmit() {
-    // console.log(this.chatForm.value.chat_message);
     const form_value = this.chatForm.value.chat_message;
     this.chat_service
       .chatMessage(form_value)
       .then((res) => {
-        console.log(res);
         this.chatForm.reset();
         this.listChat.onListChat();
       })

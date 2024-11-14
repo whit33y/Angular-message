@@ -23,7 +23,7 @@ export class ChatCardComponent {
   @Input() created_at: string = '';
   @Input() id: string = '';
 
-  loggedUser: any;
+  loggedUser: string = '';
   loggedUserId: any;
   constructor() {}
 
@@ -44,7 +44,6 @@ export class ChatCardComponent {
           });
       })
       .catch((err) => {
-        console.log(err);
         alert(err.message);
       });
   }
