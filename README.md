@@ -1,27 +1,28 @@
-# AngularMessage
+# AngularMessage 💬
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+AngularMessage is a simple chat application built using **Angular**, **Supabase**
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Real-time chat**: Users can send and receive messages instantly.
+- **User authentication**: Built-in user Google authentication using Supabase.
+- **Responsive design**: The app is designed to be mobile-friendly with CSS.
+- **Modern tech stack**: Developed with Angular for the frontend and Supabase for backend services.
 
-## Code scaffolding
+## Tech and frameworks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- Supabase
+- Typescript
+- CSS
+- Prettier
 
-## Build
+## Instalation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Todo**
 
-## Running unit tests
+## Screenshots from application
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contact
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Feel free to contact me via github or email `troppout@gmail.com`!
