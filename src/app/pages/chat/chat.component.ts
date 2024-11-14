@@ -1,4 +1,11 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { ChatCardComponent } from '../../components/chat-card/chat-card.component';
 import { ChatInputComponent } from '../../components/chat-input/chat-input.component';
 import { ChatService } from '../../supabase/chat.service';
@@ -15,6 +22,9 @@ import { Subscription } from 'rxjs';
 export class ChatComponent {
   private newMessageSubscription: Subscription | any;
   private chat_service = inject(ChatService);
+
+  @ViewChild('chatContainer') private chatContainer!: ElementRef;
+
   chats = signal<Chat[]>([]);
 
   constructor() {
@@ -31,19 +41,28 @@ export class ChatComponent {
       });
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
   onListChat() {
     this.chat_service
       .listChat()
       .then((res: Chat[] | null) => {
         if (res) {
           this.chats.set(res);
-        } else {
-          console.log('No messages found');
         }
       })
       .catch((err) => {
         alert(err.message);
       });
+  }
+
+  scrollToBottom() {
+    if (this.chatContainer) {
+      const container = this.chatContainer.nativeElement;
+      container.scrollTop = container.scrollHeight;
+    }
   }
 
   ngOnDestroy() {
