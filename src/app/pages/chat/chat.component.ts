@@ -13,11 +13,10 @@ import { Subscription } from 'rxjs';
   styleUrl: './chat.component.css',
 })
 export class ChatComponent {
+  private newMessageSubscription: Subscription | any;
+  private chat_service = inject(ChatService);
+  chats = signal<Chat[]>([]);
 
-  messages: any[] = [];
-  private newMessagesSubscription: Subscription | any;
-
-  
   constructor() {
     effect(() => {
       this.onListChat();
@@ -25,16 +24,12 @@ export class ChatComponent {
   }
 
   ngOnInit() {
-    this.newMessagesSubscription = this.chat_service.newMessages.subscribe(
-      (newMessages) => {
-        this.messages = newMessages;
-      }
-    );
+    this.newMessageSubscription = this.chat_service
+      .getNewMessages()
+      .subscribe((updatedChats: Chat[]) => {
+        this.chats.set(updatedChats);
+      });
   }
-
-  chats = signal<Chat[]>([]);
-
-  private chat_service = inject(ChatService);
 
   onListChat() {
     this.chat_service
@@ -52,10 +47,6 @@ export class ChatComponent {
   }
 
   ngOnDestroy() {
-
-    if (this.newMessagesSubscription) {
-      this.newMessagesSubscription.unsubscribe();
-    }
+    this.newMessageSubscription.unsubscribe();
   }
-
 }

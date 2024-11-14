@@ -12,6 +12,10 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './chat-card.component.css',
 })
 export class ChatCardComponent {
+  private chat_service = inject(ChatService);
+  private router = inject(Router);
+  private auth = inject(AuthService);
+
   @Input() author: string = '';
   @Input() author_id: string = '';
   @Input() avatar_url: string = '';
@@ -19,15 +23,11 @@ export class ChatCardComponent {
   @Input() created_at: string = '';
   @Input() id: string = '';
 
-  private chat_service = inject(ChatService);
-  private router = inject(Router);
-  private auth = inject(AuthService);
-  
-  loggedUser:any;
-  loggedUserId:any;
+  loggedUser: any;
+  loggedUserId: any;
   constructor() {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.loggedUser = this.auth.loggedUserId;
     this.loggedUserId = JSON.parse(this.loggedUser);
   }
