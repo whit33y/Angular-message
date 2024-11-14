@@ -4,7 +4,7 @@
 }
 
 .container .input {
-  width: 89.5%;
+  width: 65%;
 }
 
 .container .input input {
@@ -18,7 +18,7 @@
 .container .button {
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 30%;
 }
 
 .container .button button {
@@ -37,4 +37,13 @@
 button:hover {
   background-color: gainsboro;
   opacity: 0.7;
+}
+
+@media screen and (min-width: 900px) {
+  .container .input {
+    width: 89.5%;
+  }
+  .container .button {
+    width: 10%;
+  }
 }
