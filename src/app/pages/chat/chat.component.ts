@@ -22,6 +22,7 @@ import { Subscription } from 'rxjs';
 export class ChatComponent {
   private newMessageSubscription: Subscription | any;
   private chat_service = inject(ChatService);
+  placeholder = [0,1,2,3,4,5,6,7,8,9]
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 

@@ -1,10 +1,21 @@
 <div class="chat">
     <div class="chats-container" #chatContainer>
+        @defer{
         @for(chat of chats(); track $index){
         <app-chat-card [author]="chat.users.full_name" [avatar_url]="chat.users.avatar_url" [message]="chat.text"
             [created_at]="chat.created_at" [id]="chat.id" [author_id]="chat.sender"></app-chat-card>
-        }@empty {
-        <div>No messages available!</div>
+        }
+        }
+        @placeholder(minimum 1s) {
+        @for(i of placeholder; track $index){
+            <app-chat-card author="John Doe" message="Loading"
+            ></app-chat-card>
+        }
+        }
+        @loading {
+        <div>Loading chats...</div>
+        }@error {
+        <p>No messages found!</p>
         }
     </div>
     <app-chat-input></app-chat-input>
