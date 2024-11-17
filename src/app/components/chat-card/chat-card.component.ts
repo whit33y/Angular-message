@@ -22,6 +22,7 @@ export class ChatCardComponent {
   @Input() message: string = '';
   @Input() created_at: string = '';
   @Input() id: string = '';
+  @Input() loading: boolean = false;
 
   loggedUser: string = '';
   loggedUserId: any;

@@ -62,3 +62,8 @@ svg {
   border-radius: 10px;
   cursor: pointer;
 }
+
+.loading {
+  color: rgb(154, 160, 166);
+  background-color: rgb(154, 160, 166);
+}

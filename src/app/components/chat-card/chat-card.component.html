@@ -14,8 +14,8 @@
             </p>
         </div>
         <div class="message">
-            <p class="name">{{author}}</p>
-            <p class="text">{{message}}</p>
+            <p class="name" [ngClass]="{'loading': loading}">{{author}}</p>
+            <p class="text" [ngClass]="{'loading': loading}">{{message}}</p>
         </div>
     </div>
     <div class="chat-management">

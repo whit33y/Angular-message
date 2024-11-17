@@ -3,13 +3,12 @@
         @defer{
         @for(chat of chats(); track $index){
         <app-chat-card [author]="chat.users.full_name" [avatar_url]="chat.users.avatar_url" [message]="chat.text"
-            [created_at]="chat.created_at" [id]="chat.id" [author_id]="chat.sender"></app-chat-card>
+            [created_at]="chat.created_at" [id]="chat.id" [author_id]="chat.sender" [loading]="false"></app-chat-card>
         }
         }
         @placeholder(minimum 1s) {
         @for(i of placeholder; track $index){
-            <app-chat-card author="John Doe" message="Loading"
-            ></app-chat-card>
+        <app-chat-card author="John Doe" message="Loading" [loading]="true"></app-chat-card>
         }
         }
         @loading {
