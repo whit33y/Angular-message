@@ -2,7 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .left {
@@ -42,4 +47,10 @@ button:hover {
 svg {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (min-width: 900px) {
+  .header {
+    margin-bottom: 1.2rem;
+  }
 }

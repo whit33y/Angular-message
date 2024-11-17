@@ -11,18 +11,19 @@ import { ChatInputComponent } from '../../components/chat-input/chat-input.compo
 import { ChatService } from '../../supabase/chat.service';
 import { Chat } from '../../interface/chat.interface';
 import { Subscription } from 'rxjs';
+import { ChatFooterComponent } from '../../components/chat-footer/chat-footer.component';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [ChatCardComponent, ChatInputComponent],
+  imports: [ChatCardComponent, ChatInputComponent, ChatFooterComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css',
 })
 export class ChatComponent {
   private newMessageSubscription: Subscription | any;
   private chat_service = inject(ChatService);
-  placeholder = [0,1,2,3,4,5,6,7,8,9]
+  placeholder = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 

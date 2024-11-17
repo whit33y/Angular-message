@@ -3,12 +3,16 @@
 }
 
 .chats-container {
-  height: calc(100dvh - 12rem);
+  height: calc(100dvh - 11.5rem);
   overflow-y: scroll;
+  margin-bottom: 0.3rem;
 }
 
 @media screen and (min-width: 900px) {
   .chat {
     margin: 0rem 7rem;
+  }
+  .chats-container {
+    height: calc(100dvh - 10rem);
   }
 }
